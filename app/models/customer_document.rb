@@ -15,7 +15,7 @@ class CustomerDocument < ActiveRecord::Base
  #  }
 
 
-  has_attached_file :photo, :styles => { :small => "400x400", :thumb => "100x100", :media => "64x64" }#,
+  has_attached_file :photo#, :styles => { :small => "400x400", :thumb => "100x100", :media => "64x64" }#,
                     #:url  => "/assets/products/:id/:style/:basename.:extension",
                     #:path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
 
