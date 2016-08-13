@@ -7,92 +7,41 @@
   <%= javascript_include_tag "application",'bootstrap-datepicker' %>
   <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link href='https://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>  -->
+   <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet"> 
   <%= csrf_meta_tags %>
 <style type="text/css">
-	body {
-    font-family: 'Varela', sans-serif;
-		font-size:12px;
-		padding-top: 60px;
-		padding-bottom: 40px;
-    line-height: 25px;
-		font-weight: bold;
-	}
-	.sidebar-nav {
-		padding: 9px 0;
-	}
-	      .navbar .nav { font-size:14px;}
-	h5
-	 {
-	  background:black;color:white;padding-left:15px;;
-	  }
-	.row-fluid:before, .row-fluid:after {
-		display: table;
-		line-height: 0;
-		padding: 48px;
-	}
-	hr {
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    border-color: #EEEEEE -moz-use-text-color #FFFFFF;
-    border-image: none;
-    border-left: 0 none;
-    border-right: 0 none;
-    border-style: solid none;
-    border-width: 1px 0;
-    margin: 60px 0 30px 0px ;
-}
-
-input[type=submit] {
-	font-size:10px;
-  margin-top:31px;
-  padding: 7px;
-  font-weight:bold;
-}
-
-
-.blink_me {
-     float:right;
-     margin-right:50px;
-    -webkit-animation-name: blinker;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-
-    -moz-animation-name: blinker;
-    -moz-animation-duration: 1s;
-    -moz-animation-timing-function: linear;
-    -moz-animation-iteration-count: infinite;
-
-    animation-name: blinker;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-@-moz-keyframes blinker {
-    0% { opacity: 1.0; }
-    50% { opacity: 0.0; }
-    100% { opacity: 1.0; }
-}
-
-@-webkit-keyframes blinker {
-    0% { opacity: 1.0; }
-    50% { opacity: 0.0; }
-    100% { opacity: 1.0; }
-}
-
-@keyframes blinker {
-    0% { opacity: 1.0; }
-    50% { opacity: 0.0; }
-    100% { opacity: 1.0; }
-}
+      body{
+        /*font-family: 'Varela', sans-serif;*/
+        /*font-family: 'Exo 2', sans-serif;*/
+        font-family: 'Maven Pro', sans-serif;
+        font-size:14px;
+        padding-top: 60px;
+        line-height: 25px;
+/*        font-weight: bold;
+*/       }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .navbar .nav { font-size:14px;}
+      /* Set the fixed height of the footer here */
+      #footer {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #000;
+        height: 160px;
+        }
+       .dropdown-menu{   margin: 2px -68px 0;}
+       select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+        font-size: 12px;
+       }
 
 </style>
 </head>
 
-<body>
+ <body style="font-family: 'Maven Pro', sans-serif;" class="col-md-10">
+
 <%= render "navigation" %>
 <div class="container-fluid">
 <% flash.each do |name, msg| %>
@@ -116,8 +65,12 @@ input[type=submit] {
 
 
    <% if (current_user.tab_user? && current_user.tab) || (current_user.temp_admin? && current_user.tab) %>
+   <div class="span12">
    <%= render "residence" %>
+   </div>
+   <div class="span12">
    <%= render "business" %>
+   </div>
    <% end %>
   </div>
 

@@ -195,6 +195,7 @@ class CustomersController < ApplicationController
 
   def new
     @customer = Customer.new
+    @customer.documents.build
     @work_servey = WorkServey.new
      if Customer.any?
        @new_no = Customer.last.application_ref_no.to_i

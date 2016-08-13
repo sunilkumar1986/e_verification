@@ -80,20 +80,29 @@ $(function () {
   </tr>
 </table>
 <hr>
-<h3> Following are the Details to be obtained from the customer </h3><hr>
+<p> Following are the Details to be obtained from the customer </p><hr>
 
 <!-- <a><small><i class="show_hide">Click to activate Camera</i></small></a> -->
 
-<div class="slidingDiv">
 <h3>Upload Documents</h3>
- <%= f.fields_for :customer_documents do |customer| %>
-    <%= customer.file_field :photo %>
-    <%= customer.hidden_field :servey_id %>
-    <%= customer.hidden_field :customer_id, :value =>@customer.id %>
-    <%= customer.link_to_remove "Remove" %>
- <% end %>
-  <p><%= f.link_to_add "Add more documents", :customer_documents %></p><br>
-
+<div class="well">
+  <% ['AOF', 'MF', 'POA', 'NACH', 'Others'].each do |doc_type| %>
+  
+  <div class="row">
+   <%= f.fields_for :customer_documents do |customer| %>
+      <div class="col-lg-3">
+        <%= doc_type %>
+      </div>
+      <div class="col-lg-9">
+        <%= customer.file_field :photo %>
+        <%= customer.hidden_field :servey_id %>
+        <%= customer.hidden_field :customer_id, :value =>@customer.id %>
+        <%= customer.link_to_remove "Remove", class: "btn btn-mini btn-danger" %>
+      </div>
+   <% end %>
+   </div>
+  <% end %>
+  <p><%= f.link_to_add "Add more documents", :customer_documents, class: "btn btn-mini btn-success" %></p><br>
 
 </div>
 

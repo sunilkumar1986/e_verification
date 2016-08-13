@@ -1,9 +1,9 @@
-<style>
+<style type="text/css">
  #main_data{float:left}
  #sidebar{float:right;width:300px;}
 </style>
 <div id="main_data">
-<%= form_for(@customer, :html => { :style => 'padding-left:70px;' }) do |f| %>
+<%= form_for(@customer, :html => { :style => 'padding-left:70px;',  multipart: true }) do |f| %>
 
   <% if @customer.errors.any? %>
     <div id="error_explanation" style="color:red">
@@ -35,28 +35,32 @@
      <%= f.collection_select :client_id, Client.all, :id, :name, :class => 'text_field' %>
    </div>
    <div class ="field_name">
-     <%= f.label :select_branch_name, :class => 'control-label' %>
+     <%= f.label :document_type, :class => 'control-label' %>
      <%= f.collection_select :branch_id, Branch.all, :id, :name, {:prompt => true} ,{:class => 'text_field', :onchange => 'getBranchcode(this)'} %>
    </div>
    <div class ="field_name">
-     <%= f.label :branch_code, :class => 'control-label' %>
+     <%= f.label :document_code, :class => 'control-label' %>
      <%= f.text_field :branch_code, :class => 'text_field' %>
    </div>
 
   </div>
 
+  <%= f.fields_for :documents do |d| %>
+    <%= d.file_field :document %>
+  <% end %>
+
 
 <% if @customer.blank? %>
  <div class='row'>
   <div class="field_name">
-    <%= f.label :application_ref_no, :class => 'control-label' %>
+    <%= f.label :client_code, :class => 'control-label' %>
      <b><%= f.text_field :application_ref_no, :class => 'text_field', :value=> @final_no %></b>
   </div>
 <% else %>
 
  <div class="row">
  <div class="field_name">
-    <%= f.label :application_ref_no, :class => 'control-label' %>
+    <%= f.label :client_code, :class => 'control-label' %>
      <b><%= f.text_field :application_ref_no, :class => 'text_field', :value=> @final_no %></b>
      <%= f.hidden_field :application_status, :value => "RESIDENTIAL" %>
   </div>
@@ -160,10 +164,14 @@
 </div>
 
  <div id='sidebar'>
-<!-- 	<div class="field_name">
+    <!-- 	<div class="field_name">
 		<%#= f.check_box :no_verifcation %>
 		<b style ="padding-left:10px;">Click if verification not required</b><hr>
 	</div> -->
+
+
+
+
 	<div class="field_name">
 		<%= f.check_box :photo_required, checked: true %>
 		<b style ="padding-left:10px;">document is required</b>
