@@ -9,6 +9,7 @@ EVerification::Application.routes.draw do
 
   root :to => 'dashboards#index'
   get "help_topics/" => 'help_topics#index', :as => :help_topics
+  get "download_file" => 'customers#download', :as => :download_file
 
   get "help_topics/how-to-make-applicant" => 'help_topics#make_customer', :as => :make_customer
   get "help_topics/how-to-make-co-applicant" => 'help_topics#make_co_applicant', :as => :make_co_applicant

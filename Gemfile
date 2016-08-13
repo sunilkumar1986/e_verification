@@ -11,7 +11,6 @@ source 'https://rubygems.org'
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
   gem "twitter-bootstrap-rails"
   gem 'rmagick', :require => 'rmagick'
-
   gem "mocha", :group => :test
   gem 'activeadmin'
   gem 'friendly_id'
@@ -34,6 +33,7 @@ source 'https://rubygems.org'
 
   group :development do
     gem 'thin'
+    gem 'pry'
     gem 'capistrano', '~> 3.1.0'
     # cap tasks to manage puma application server
     gem 'capistrano-puma', require: false

@@ -4,9 +4,9 @@ class Customer < ActiveRecord::Base
                   :country_name, :slug, :address, :degree_name, :agency_name,
                   :fh_code, :landmark, :d_o_b, :photo_required, :contact_number, :application_status,
                   :branch_id, :branch_code, :client_id, :area_name, :city_id, :no_verifcation, :status, 
-                  :city_name, :pincode_number, :documents_attributes, :document
+                  :city_name, :message, :pincode_number, :documents_attributes, :document
 
-  validates_presence_of :application_ref_no, :applicant_name, :address, :fh_code, :branch_id, :client_id, :branch_code
+  # validates_presence_of :application_ref_no, :applicant_name, :address, :fh_code, :branch_id, :client_id, :branch_code
   validates_uniqueness_of :application_ref_no, :fh_code, :contact_number
 
   serialize :asset_seen_at_residence

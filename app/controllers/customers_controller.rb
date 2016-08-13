@@ -30,6 +30,12 @@ class CustomersController < ApplicationController
     end
   end
 
+  def download
+    redirect_to paperclip_attachment.file.url
+    # customer = CustomerDocument.find(params[:id])
+    # send_file(File.join(IMAGES_PATH, customer))
+  end
+
   def download_ready_customers
     @ready_customers = Customer.where('no_verifcation =? and status =?', false, 'ready_for_verification')
     respond_to do |format|
@@ -165,8 +171,7 @@ class CustomersController < ApplicationController
   end
 
   def cust_ready
-    #@cust_ready = inqueue_filter
-    @cust_ready = Customer.where('status = ? and  no_verifcation = ? ', 'ready_for_verification', false)
+    @cust_ready = Customer.where('status = ? ', 'ready_for_verification')
     @business_ready = Business.where('status = ?', 'ready_for_verification')
     @co_applicant_ready = CoApplicant.where('status = ?', 'ready_for_verification')
     @co_applicant_business_ready = CoApplicantBusiness.where('status = ?', 'ready_for_verification')

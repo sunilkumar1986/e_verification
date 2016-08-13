@@ -15,6 +15,7 @@ class Servey < ActiveRecord::Base
 
 
   serialize :name_varified_from
+  DOCUMENTS_PATH = File.join(Rails.root, "public", "customer_documents")
 
 
   belongs_to :tab

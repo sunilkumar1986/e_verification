@@ -9,7 +9,7 @@ class ServeysController < ApplicationController
   def new
    @customer = Customer.find(params[:customer_id])
    @survey = Servey.new
-   @customer_documents = @survey.customer_documents.build
+    @customer_documents = @survey.customer_documents.build
    #@webcam_picture = WebcamPicture.new
    #@webcam_pictures = WebcamPicture.find(:all)
   end

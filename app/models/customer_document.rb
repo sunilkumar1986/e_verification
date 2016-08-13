@@ -2,25 +2,21 @@ class CustomerDocument < ActiveRecord::Base
   belongs_to :servey
   belongs_to :customer
   
-  attr_accessible :photo, :photo_name, :servey_id, :customer_id
- #  #validates_presence_of :customer_id, :photo, :photo_name
-
- #  mount_uploader :photo, PhotoUploader
- # IMAGE_SIZES = {
- #    :thumb =>[400, 400],
- #    :small => [800, 600],
- #    :medium => [1024, 768],
- #    :large => [1600, 1200],
- #    :max => [2272, 1704]
- #  }
+  attr_accessible :photo, :photo_name, :servey_id, :customer_id, :file_name
 
 
-  has_attached_file :photo#, :styles => { :small => "400x400", :thumb => "100x100", :media => "64x64" }#,
-                    #:url  => "/assets/products/:id/:style/:basename.:extension",
-                    #:path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
-
+  has_attached_file :photo
   validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['application/pdf', 'application/msword', 'text/plain']
+
+  before_create :randomize_file_name
+
+private
+
+  def randomize_file_name
+    extension = File.extname(photo_file_name).downcase
+    self.photo.instance_write(:file_name, 'test')
+  end
 
 end

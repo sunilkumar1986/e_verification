@@ -28,6 +28,7 @@
   <tr><td><strong><%= model_class.human_attribute_name(:address) %>:</td></strong>
   <td><%= @customer.address %></td></tr>
 
+
   <tr><td><strong><%= model_class.human_attribute_name(:landmark) %>:</td></strong>
   <td><%= @customer.landmark %></td></tr>
 
@@ -158,24 +159,32 @@
 
 <% if @customer.customer_documents.present? %>
 <h4> Submitted Documents </h4><br>
-<div class="bs-example">
-    Survey has <%= @customer.customer_documents.count %> attachment Douments<a href="#attachment" data-toggle="modal"> Click Here </a>
-</div>  
 
-<div id="attachment" class="modal fade">
+
+<% @customer.customer_documents.each do |d| %>
+  Download - <%= link_to d.photo_file_name, d.photo.url, download: d.photo_file_name %>
+<% end %>
+
+<% end %>
+</div>
+</div>
+
+
+<!-- <div class="bs-example">
+    Survey has <%#= @customer.customer_documents.count %> attachment Douments<a href="#attachment" data-toggle="modal"> Click Here </a>
+</div>  --> 
+
+<!-- <div id="attachment" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-              <% @customer.customer_documents.each do |d| %>
-                <iframe src="<%= d.photo.url %> & embedded=true" width="100%" height="800"></iframe>
-              <% end %>
+              <%# @customer.customer_documents.each do |d| %>
+                <iframe src="<%#= d.photo.url %> & embedded=true" width="100%" height="800"></iframe>
+              <%# end %>
             </div>
         </div>
     </div>
-</div>
-<% end %>
-</div>
-</div>
+</div> -->

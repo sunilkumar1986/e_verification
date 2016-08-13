@@ -16,9 +16,7 @@
   
   <td>
     <% if c.documents.present? %>
-      <%= link_to "#" do %>
-      <%= image_tag('attachment.ico', size: "30x30") %>  
-      <% end %>
+      <%= link_to image_tag('attachment.ico', size: "30x30"), c.documents.first.document.url, download: c.documents.first.document_file_name %>  
     <% end %>
   </td>
   <td>
