@@ -8,7 +8,7 @@ class DashboardsController < ApplicationController
    @total_pending = total_pending
    @total_in_progress = total_in_progress
    @total_completed = total_completed
-   @submitted_customers = Customer.submitted
+   @submitted_customers = current_user.tab.customer_verifications.submitted#Customer.submitted.where(tab_id: current_user.tab.id)
    @submitted_co_applicants = CoApplicant.submitted
    @submitted_businesses = Business.submitted
    @submitted_co_applicants_businesses = CoApplicantBusiness.submitted

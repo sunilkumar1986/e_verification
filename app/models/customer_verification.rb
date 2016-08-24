@@ -6,4 +6,5 @@ class CustomerVerification < ActiveRecord::Base
   belongs_to :co_applicant_work_detail
   belongs_to :tab
   validates_presence_of :tab_id
+  scope :submitted, joins(:customer).where('customers.status =?', 'submitted')
 end

@@ -11,9 +11,11 @@
     <td style="color:#009999;border-radius:3px;padding:2px;"><%= e.customer.application_status %></td>
     <td><%= link_to e.customer.applicant_name, e.customer %></td>
      <td><%= e.tab.name %></td>
-     <td><%= e.customer.status %></td>
+     <td><%= e.customer.status.humanize %></td>
      <% if e.customer.awaiting_to_get_verified? %>
-      <td><%= link_to "ACCEPT", root_path, :class => "label label-info"%></td>
+     <td>
+       <%= link_to "ACCEPT", accept_customer_path(e.customer, :customer_id=>e.customer), :class => "label label-info"%>
+     </td>
      <% end %>
 <% end %>
   </tr>

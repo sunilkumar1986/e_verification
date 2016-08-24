@@ -95,7 +95,7 @@ $(function () {
       </div>
       <div class="col-lg-9">
         <%= customer.text_field :file_name, placeholder: "enter file name" %>
-        <%= customer.file_field :photo %>
+        <%= customer.file_field :photo, required: true %>
         <%= customer.hidden_field :servey_id %>
         <%= customer.hidden_field :customer_id, :value =>@customer.id %>
         <%= customer.link_to_remove "Remove", class: "btn btn-mini btn-danger" %>
