@@ -77,10 +77,13 @@ $(function () {
     <td><%= @customer.agency_name %></td>
     <td><%= @customer.address %></td>
     <td><%= @customer.applicant_name %></td>
-  </tr>
+  </tr>   
 </table>
-<hr>
-<p> Following are the Details to be obtained from the customer </p><hr>
+<hr>      
+  <p> Following are the Details to be obtained from the customer </p><hr>
+  <h2>
+  Remark: <%= @customer.message   %> </h2>
+
 
 <!-- <a><small><i class="show_hide">Click to activate Camera</i></small></a> -->
 

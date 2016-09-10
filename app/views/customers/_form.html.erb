@@ -3,7 +3,7 @@
  #sidebar{float:right;width:300px;}
 </style>
 <div id="main_data">
-<%= form_for(@customer, :html => { :style => 'padding-left:70px;',  multipart: true }) do |f| %>
+<%= nested_form_for(@customer, :html => { :style => 'padding-left:70px;',  multipart: true }) do |f| %>
 
   <% if @customer.errors.any? %>
     <div id="error_explanation" style="color:red">
@@ -44,11 +44,15 @@
    </div>
 
   </div>
-
-  <%= f.fields_for :documents do |d| %>
+<div class="well">
+  <div class="row">
+  <% f.fields_for :documents do |d| %>
+  <%= d.link_to_remove "Remove", class: "btn btn-mini btn-danger" %>
     <%= d.file_field :document %>
   <% end %>
-
+  </div>
+  <p><%= f.link_to_add "Add more documents", :documents, class: "btn btn-mini btn-success" %></p><br>
+</div>
 
 <% if @customer.blank? %>
  <div class='row'>
