@@ -7,8 +7,8 @@ class CustomerDocument < ActiveRecord::Base
 
   has_attached_file :photo
   validates_attachment_presence :photo
-  validates_attachment_size :photo, :less_than => 5.megabytes
-  validates_attachment_content_type :photo, :content_type => ['application/pdf', 'application/msword', 'text/plain']
+  validates_attachment_size :photo, :less_than => 50.megabytes
+  validates_attachment_content_type :photo, :content_type => ['application/pdf', 'application/msword', 'text/plain', "image/jpeg", "image/png"]
 
   before_create :randomize_file_name
 
@@ -16,7 +16,7 @@ private
 
   def randomize_file_name
     extension = File.extname(photo_file_name).downcase
-    self.photo.instance_write(:file_name, 'test')
+    #self.photo.instance_write(:file_name, 'test')
   end
 
 end
