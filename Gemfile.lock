@@ -113,6 +113,8 @@ GEM
     eventmachine (1.0.4)
     excon (0.42.1)
     execjs (2.2.2)
+    font-awesome-rails (4.6.3.1)
+      railties (>= 3.2, < 5.1)
     formtastic (2.3.1)
       actionpack (>= 3.0)
     friendly_id (4.0.10.1)
@@ -316,6 +318,7 @@ DEPENDENCIES
   coffee-script-source (~> 1.4.0)
   devise (= 3.0.3)
   execjs
+  font-awesome-rails
   friendly_id
   geocoder
   heroku
@@ -346,3 +349,6 @@ DEPENDENCIES
   validates_timeliness (~> 3.0)
   whenever (~> 0.8.0)
   workflow
+
+BUNDLED WITH
+   1.10.5
