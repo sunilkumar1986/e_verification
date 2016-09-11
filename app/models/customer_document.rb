@@ -16,7 +16,7 @@ private
 
   def randomize_file_name
     extension = File.extname(photo_file_name).downcase
-    self.photo.instance_write(:file_name, 'test')
+    #self.photo.instance_write(:file_name, 'test')
   end
 
 end
