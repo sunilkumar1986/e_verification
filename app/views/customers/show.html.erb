@@ -48,7 +48,7 @@
   <td><%= @customer.servey.date_of_visit %></td></tr>
 
   <tr><td><strong><%= model_class.human_attribute_name(:time_of_visit) %>:</strong>
-  <td><%= @customer.servey.time_of_visit %></td></tr>
+  <td><%= (@customer.servey.time_of_visit).strftime("%H:%M:%S") %></td></tr>
 
   <tr><td><strong><%= model_class.human_attribute_name(:person_contacted) %>:</strong>
   <td><%= @customer.servey.person_contacted %></td></tr>
