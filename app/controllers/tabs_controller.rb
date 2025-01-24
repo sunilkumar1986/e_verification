@@ -1,9 +1,9 @@
 class TabsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   include ApplicationHelper
   include TabsHelper
   include DashboardsHelper
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   def index
     @tabs = Tab.all
@@ -11,10 +11,10 @@ class TabsController < ApplicationController
 
   def show
     @tab = Tab.find(params[:id])
-    @tab_data_customer = CustomerVerification.find_all_by_tab_id(@tab)
-    @tab_data_client = ClientVerification.find_all_by_tab_id(@tab)
-    @tab_data_coapp = CoApplicantVerification.find_all_by_tab_id(@tab)
-    @tab_data_business = BusinessVerification.find_all_by_tab_id(@tab)
+    @tab_data_customer = CustomerVerification.where(tab_id: @tab)
+    @tab_data_client = ClientVerification.where(tab_id: @tab)
+    @tab_data_coapp = CoApplicantVerification.where(tab_id: @tab)
+    @tab_data_business = BusinessVerification.where(tab_id: @tab)
   end
 
   def new

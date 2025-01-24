@@ -2,7 +2,7 @@
  <a class="pull-left" href="#">
   <% if current_user.profile %>
   <% unless current_user.profile.photo.blank? %>
-   <p><%= image_tag current_user.profile.photo.url(:thumb), :size=>"64x64" %></p>
+   <p><%#= image_tag current_user.profile.photo.url(:thumb), :size=>"64x64" %></p>
   <% else %>
    <%= image_tag('sample-avatar.png',:size => '64x64')%>
   <% end %>

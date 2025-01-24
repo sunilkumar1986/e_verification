@@ -83,7 +83,7 @@ input[type=submit] {
 
      <td><%= customer.address %></td>
      <% if customer.class==Business %>
-     <% @verifier  = BusinessVerification.find_all_by_business_id(customer) %>
+     <% @verifier  = BusinessVerification.where(business_id: customer) %>
       <% @verifier.each do |v| %>
        <% if v && v.tab && v.tab.name %>
         <td><%= v.tab.name %></td>
@@ -94,7 +94,7 @@ input[type=submit] {
      <% end %>
 
      <% if customer.class==Customer %>
-     <% @verifier  = CustomerVerification.find_all_by_customer_id(customer) %>
+     <% @verifier  = CustomerVerification.where(customer_id: customer) %>
       <% @verifier.each do |v| %>
        <% if v.customer && v.tab && v.tab.name %>
         <td><%= v.tab.name %></td>
@@ -105,7 +105,7 @@ input[type=submit] {
      <% end %>
 
      <% if customer.class==CoApplicant %>
-     <% @verifier  = CoApplicantVerification.find_all_by_co_applicant_id(customer) %>
+     <% @verifier  = CoApplicantVerification.where(co_applicant_id: customer) %>
       <% @verifier.each do |v| %>
        <% if v && v.tab && v.tab.name %>
         <td><%= v.tab.name %></td>

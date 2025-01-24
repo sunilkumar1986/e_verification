@@ -48,7 +48,7 @@
   <td><%= @customer.servey.date_of_visit %></td></tr>
 
   <tr><td><strong><%= model_class.human_attribute_name(:time_of_visit) %>:</strong>
-  <td><%= (@customer.servey.time_of_visit).strftime("%H:%M:%S") %></td></tr>
+  <td><%= (@customer.servey.time_of_visit) %></td></tr>
 
   <tr><td><strong><%= model_class.human_attribute_name(:person_contacted) %>:</strong>
   <td><%= @customer.servey.person_contacted %></td></tr>
@@ -93,9 +93,11 @@
   <td><%= @customer.servey.neighbour_ref %></td></tr>
 
   <tr><td><strong><%= model_class.human_attribute_name(:name_varified_from) %>:</strong>
+    <%- if @customer.servey.name_varified_from.present? %>
     <td><ol><% @customer.servey.name_varified_from.each do |i| %>
        <li><%= i %></li>
     <% end %></ol></td></tr>
+    <% end %>
 
   <tr><td><strong><%= model_class.human_attribute_name(:residence_status) %>:</strong>
   <td><%= @customer.servey.residence_status %></td></tr>
@@ -162,7 +164,7 @@
 
 
 <% @customer.customer_documents.each do |d| %>
-  Download - <%= link_to d.photo_file_name, d.photo.url, download: d.photo_file_name %>
+  Download - <%#= link_to d.photo_file_name, d.photo.url, download: d.photo_file_name %>
 <% end %>
 
 <% end %>

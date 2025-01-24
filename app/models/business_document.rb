@@ -1,5 +1,5 @@
 class BusinessDocument < ActiveRecord::Base
-  attr_accessible :business_id, :work_servey_id , :photo
+  attr_accessor :business_id, :work_servey_id , :photo
   belongs_to :business
   belongs_to :work_servey
 

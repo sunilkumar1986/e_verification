@@ -1,10 +1,10 @@
 class Customer < ActiveRecord::Base
-  attr_accessible :applicant_name, :application_ref_no, :latitude, :longitude,
-                  :gmaps, :state, :pincode_id, :country_state, :country_city,
-                  :country_name, :slug, :address, :degree_name, :agency_name,
-                  :fh_code, :landmark, :d_o_b, :photo_required, :contact_number, :application_status,
-                  :branch_id, :branch_code, :client_id, :area_name, :city_id, :no_verifcation, :status, 
-                  :city_name, :message, :pincode_number, :documents_attributes, :document
+  # attr_accessor :applicant_name, :application_ref_no, :latitude, :longitude,
+  #                 :gmaps, :state, :pincode_id, :country_state, :country_city,
+  #                 :country_name, :slug, :address, :degree_name, :agency_name,
+  #                 :fh_code, :landmark, :d_o_b, :photo_required, :contact_number, :application_status,
+  #                 :branch_id, :branch_code, :client_id, :area_name, :city_id, :no_verifcation, :status, 
+  #                 :city_name, :message, :pincode_number, :documents_attributes, :document
 
   # validates_presence_of :application_ref_no, :applicant_name, :address, :fh_code, :branch_id, :client_id, :branch_code
   validates_uniqueness_of :application_ref_no, :fh_code, :contact_number
@@ -14,11 +14,12 @@ class Customer < ActiveRecord::Base
   extend FriendlyId
   friendly_id :applicant_name, use: :slugged
 
-  scope :inprogress, where(:status => 'awaiting_to_get_verified')
-  scope :inqueue , where(:status => 'ready_for_verification')
-  scope :verified, where(:status => 'verified')
-  scope :submitted, where(:status => 'submitted')
-  scope :without_status, lambda{|customer| customer ? {:conditions => ["status != ?", 'ready_for_verification']} : {} }
+  # scope :inprogress, where(:status => 'awaiting_to_get_verified')
+  # scope :inqueue , where(:status => 'ready_for_verification')
+  # scope :verified, where(:status => 'verified')
+  # scope :submitted, where(:status => 'submitted')
+  # scope :without_status, lambda{|customer| customer ? {:conditions => ["status != ?", 'ready_for_verification']} : {} }
+  scope :without_status, -> (status) { where.not(status: status) }
 
   has_one :servey, :dependent => :destroy
   has_one :business, :dependent => :destroy
@@ -38,7 +39,7 @@ class Customer < ActiveRecord::Base
   has_many :documents
   accepts_nested_attributes_for :documents, :reject_if => :all_blank, :allow_destroy => true
 
-  attr_accessible :customer_documents_attributes, :dependent_destroy => true
+  # attr_accessor :customer_documents_attributes, :dependent_destroy => true
   accepts_nested_attributes_for :customer_documents, :allow_destroy => true
   accepts_nested_attributes_for :customer_documents, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
   geocoded_by :full_address

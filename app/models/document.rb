@@ -1,5 +1,5 @@
 class Document < ActiveRecord::Base
-  # attr_accessible :customer_id
+  # attr_accessor :customer_id
   has_attached_file :document
   validates_attachment_presence :document
   validates_attachment_size :document, :less_than => 5.megabytes

@@ -2,8 +2,8 @@ development:
     adapter: postgresql
     host: localhost
     database: e-verification_development
-    username: sudhir
-    password: sudhirsb
+    username: postgres
+    password: sunil
 
 
 production:

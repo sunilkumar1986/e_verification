@@ -1,5 +1,5 @@
 class WorkServey < ActiveRecord::Base
-  attr_accessible :customer_id, :pincode_id, :servey_id, :office_address, :name_and_employee_confirm,
+  attr_accessor :customer_id, :pincode_id, :servey_id, :office_address, :name_and_employee_confirm,
                   :application_designation,:date_of_visit, :time_of_visit, :person_met,:applicant_designation,
                   :designation_of_person_met, :telephone_number, :ext_number, :mobile_number, :number_of_years_in_present_employment,
                   :visiting_card_obtained, :name_of_the_company, :type_of_business, :nature_of_business, :nob_in_detail,
@@ -12,7 +12,7 @@ class WorkServey < ActiveRecord::Base
 
   serialize :name_verified_from
 
-  attr_accessible :business_documents_attributes
+  attr_accessor :business_documents_attributes
 
   belongs_to :customer
   belongs_to :pincode

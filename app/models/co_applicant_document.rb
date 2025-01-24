@@ -1,5 +1,5 @@
 class CoApplicantDocument < ActiveRecord::Base
-  attr_accessible :co_applicant_servey_id, :photo, :co_applicant_id
+  attr_accessor :co_applicant_servey_id, :photo, :co_applicant_id
   belongs_to :co_applicant_servey
 
 	has_attached_file :photo, :styles => { :small => "400x400", :thumb => "100x100", :media => "64x64" }#,

@@ -1,5 +1,5 @@
 class CoApplicantsController < ApplicationController
-   before_filter :authenticate_user!
+   before_action :authenticate_user!
    layout 'print_layout', :only => :print_co_applicant
    load_and_authorize_resource
 

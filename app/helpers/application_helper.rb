@@ -20,31 +20,31 @@ module ApplicationHelper
   end
 
   def residential
-    Customer.find_all_by_application_status('RESIDENTIAL').last(50) + CoApplicant.find_all_by_application_status('RESIDENTIAL').last(50)
+    Customer.where(status: 'RESIDENTIAL').last(50) + CoApplicant.where(status: 'RESIDENTIAL').last(50)
   end
 
   def business
-    Business.find_all_by_application_status('BUSINESS').last(50) + CoApplicantBusiness.find_all_by_application_status('BUSINESS').last(50)
+    Business.where(status: 'BUSINESS').last(50) + CoApplicantBusiness.where(status: 'BUSINESS').last(50)
   end
 
   def pending_filter
-    Customer.find_all_by_status('submitted') + CoApplicant.find_all_by_status('submitted') + Business.find_all_by_status('submitted') + CoApplicantBusiness.find_all_by_status('submitted')
+    Customer.where(status: 'submitted') + CoApplicant.where(status: 'submitted') + Business.where(status: 'submitted') + CoApplicantBusiness.where(status: 'submitted')
   end
 
   def inqueue_filter
-    Customer.find_all_by_status('ready_for_verification') + CoApplicant.find_all_by_status('ready_for_verification') + Business.find_all_by_status('ready_for_verification') + CoApplicantBusiness.find_all_by_status('ready_for_verification')
+    Customer.where(status: 'ready_for_verification') + CoApplicant.where(status: 'ready_for_verification') + Business.where(status: 'ready_for_verification') + CoApplicantBusiness.where(status: 'ready_for_verification')
   end
 
   def in_progress_filter
-    Customer.find_all_by_status('awaiting_to_get_verified') + CoApplicant.find_all_by_status('awaiting_to_get_verified') + Business.find_all_by_status('awaiting_to_get_verified') + CoApplicantBusiness.find_all_by_status('awaiting_to_get_verified')
+    Customer.where(status: 'awaiting_to_get_verified') + CoApplicant.where(status: 'awaiting_to_get_verified') + Business.where(status: 'awaiting_to_get_verified') + CoApplicantBusiness.where(status: 'awaiting_to_get_verified')
   end
 
   def completed_filter
-    Customer.find_all_by_status('verified', order: 'created_at DESC') + CoApplicant.find_all_by_status('verified', order: 'created_at DESC') + Business.find_all_by_status('verified', order: 'created_at DESC') + CoApplicantBusiness.find_all_by_status('verified', order: 'created_at DESC')
+    Customer.where(status: 'verified') + CoApplicant.where(status: 'verified') + Business.where(status: 'verified') + CoApplicantBusiness.where(status: 'verified')
   end
 
   def complete_filter
-    Customer.find_all_by_status('awaiting_to_get_verified') + CoApplicant.find_all_by_status('awaiting_to_get_verified') + Business.find_all_by_status('awaiting_to_get_verified') + CoApplicantBusiness.find_all_by_status('awaiting_to_get_verified')
+    Customer.where(status: 'awaiting_to_get_verified') + CoApplicant.where(status: 'awaiting_to_get_verified') + Business.where(status: 'awaiting_to_get_verified') + CoApplicantBusiness.find_all_by_status('awaiting_to_get_verified')
   end
 
   def tab_pending
@@ -52,51 +52,51 @@ module ApplicationHelper
   end
 
   def pending_customer
-    Customer.find_all_by_status('submitted')
+    Customer.where(status: 'submitted')
   end
 
   def customer_in_progress
-    Customer.find_all_by_status('awaiting_to_get_verified')
+    Customer.where(status: 'awaiting_to_get_verified')
   end
 
   def completed_customer
-    Customer.find_all_by_status('verified')
+    Customer.where(status: 'verified')
   end
 
   def pending_business
-    Business.find_all_by_status('submitted')
+    Business.where(status: 'submitted')
   end
 
   def business_in_progress
-    Business.find_all_by_status('awaiting_to_get_verified')
+    Business.where(status: 'awaiting_to_get_verified')
   end
 
   def completed_business
-    Business.find_all_by_status('verified')
+    Business.where(status: 'verified')
   end
 
   def pending_co_applicant
-    CoApplicant.find_all_by_status('submitted')
+    CoApplicant.where(status: 'submitted')
   end
 
   def co_applicant_in_progress
-    CoApplicant.find_all_by_status('awaiting_to_get_verified')
+    CoApplicant.where(status: 'awaiting_to_get_verified')
   end
 
   def completed_co_applicant
-    CoApplicant.find_all_by_status('verified')
+    CoApplicant.where(status: 'verified')
   end
 
   def pending_co_applicant_business
-    CoApplicantBusiness.find_all_by_status('submitted')
+    CoApplicantBusiness.where(status: 'submitted')
   end
 
   def co_applicant_business_in_progress
-    CoApplicantBusiness.find_all_by_status('awaiting_to_get_verified')
+    CoApplicantBusiness.where(status: 'awaiting_to_get_verified')
   end
 
   def co_applicant_business_completed
-    CoApplicantBusiness.find_all_by_status('verified')
+    CoApplicantBusiness.where(status: 'verified')
   end
 
   def total_pending

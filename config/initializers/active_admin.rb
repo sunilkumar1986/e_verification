@@ -8,7 +8,7 @@ ActiveAdmin.setup do |config|
   config.site_title = "E Verification"
   config.site_title_link = "/"    ## Rails url helpers do not work here
   config.site_title_image = "site_log_image.png"
-  config.skip_before_filter :authenticate_user!
+  config.skip_before_action :authenticate_user!
  
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -112,7 +112,7 @@ ActiveAdmin.setup do |config|
   # You can add before, after and around filters to all of your
   # Active Admin resources from here.
   #
-  # config.before_filter :do_something_awesome
+  # config.before_action :do_something_awesome
 
 
   # == Register Stylesheets & Javascripts

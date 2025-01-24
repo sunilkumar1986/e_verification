@@ -1,5 +1,5 @@
 class Servey < ActiveRecord::Base
-  attr_accessible :customer_id, :tab_id,:accept_or_decline, :address_confirmed, :agency_name,
+  attr_accessor :customer_id, :tab_id,:accept_or_decline, :address_confirmed, :agency_name,
                 :applicant_residing_detail, :application_availibility_time, 
                 :asset_seen_at_residence, :card_limit, :card_no, :carpet_area_in_sq_feet, :children,
                 :comments_of_exteriors, :construction_of_residence, :credit_card, :customer_beaviour,

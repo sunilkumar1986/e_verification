@@ -1,5 +1,5 @@
 class Tab < ActiveRecord::Base
-  attr_accessible :name, :tab_code, :pin_code, :pincode_id
+  attr_accessor :name, :tab_code, :pin_code, :pincode_id
 
   has_one :profile
   has_one :user

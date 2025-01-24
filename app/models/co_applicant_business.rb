@@ -1,8 +1,8 @@
 class CoApplicantBusiness < ActiveRecord::Base
-attr_accessible :address, :agency_name, :applicant_name, :application_ref_no, :city, :customer_id,:application_status,
-                :company_name, :country, :date_of_birth, :document_required, :fh_code, :landmark,:status,
-                :latitude, :longitude, :pincode_id, :slug, :state, :status, :pan_number, :emp_code, :department_id,
-                :client_id, :branch_id, :branch_code, :area_name, :city_id
+# attr_accessor :address, :agency_name, :applicant_name, :application_ref_no, :city, :customer_id,:application_status,
+#                 :company_name, :country, :date_of_birth, :document_required, :fh_code, :landmark,:status,
+#                 :latitude, :longitude, :pincode_id, :slug, :state, :status, :pan_number, :emp_code, :department_id,
+#                 :client_id, :branch_id, :branch_code, :area_name, :city_id
  belongs_to :customer
  belongs_to :pincode
  has_one :co_applicant_verification
@@ -14,8 +14,10 @@ attr_accessible :address, :agency_name, :applicant_name, :application_ref_no, :c
  belongs_to :client
  validates_presence_of :application_ref_no, :applicant_name, :address, :fh_code
  validates_uniqueness_of :application_ref_no, :fh_code
- scope :without_status, lambda{|customer| customer ? {:conditions => ["status != ?", 'ready_for_verification']} : {} }
- scope :submitted, where(status: 'submitted')
+ # scope :without_status, lambda{|customer| customer ? {:conditions => ["status != ?", 'ready_for_verification']} : {} }
+ scope :without_status, -> (status) { where.not(status: status) }
+
+ scope :submitted, -> { where(status: 'submitted') }
  extend FriendlyId
  friendly_id :applicant_name, use: :slugged
 

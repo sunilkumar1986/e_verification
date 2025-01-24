@@ -2,7 +2,7 @@ class CustomerDocument < ActiveRecord::Base
   belongs_to :servey
   belongs_to :customer
   
-  attr_accessible :photo, :photo_name, :servey_id, :customer_id, :file_name
+  attr_accessor :photo, :photo_name, :servey_id, :customer_id, :file_name
 
 
   has_attached_file :photo

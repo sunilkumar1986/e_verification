@@ -22,19 +22,19 @@ border-collapse:collapse;
         <table>
         <tr>
         <td class="border1" style="text-align:center;width:200px">Application No</td>
-        <td class="border1" style='text-align:center;'> <%= @customer.fh_code %></td>
+        <td class="border1" style='text-align:center;'> <%= @customer&.fh_code %></td>
         <td class="border1" width="300px;" style="text-align:center;">Agency Name</td>
         <td class="border1" width="150" style="text-align:center; font-size:10px;">SCROP.E.O</td>
         <td class="border1" width="60" style="text-align:center;">FH Code</td>
-        <td width="127" style="text-align:center;border:1px #000 solid; border-top:none; border-right:none"><%= @customer.fh_code %></td>
+        <td width="127" style="text-align:center;border:1px #000 solid; border-top:none; border-right:none"><%= @customer&.fh_code %></td>
         </tr>
 
 		<tr>
 
         <td style="border-right:1px #000 solid">Applicant's Name</td>
-        <td style="border-right:1px #000 solid;text-align:center;width:250px;font-weight:bold" align="center"><%= @customer.applicant_name %></td>
+        <td style="border-right:1px #000 solid;text-align:center;width:250px;font-weight:bold" align="center"><%= @customer&.applicant_name %></td>
         <td style="text-align:center;width:200px;">BRANCH NAME</td>
-        <td width="20" style="border-left:1px #000 solid;text-align:center"><%= @customer.branch.name %></td>
+        <td width="20" style="border-left:1px #000 solid;text-align:center"><%= @customer&.branch&.name %></td>
 
         </tr>
 
@@ -47,7 +47,7 @@ border-collapse:collapse;
         <table>
         <tr>
         <td style="border-right:1px solid #000" width="130">Address</td>
-        <td width="0" style="padding-left:30px;"><%= @customer.address %></td>
+        <td width="0" style="padding-left:30px;"><%= @customer&.address %></td>
         </tr>
         </table>
 	</tr>
@@ -58,12 +58,12 @@ border-collapse:collapse;
         <table>
         <tr align="center">
         <td style="border-right:1px #000 solid; font-weight:bold; text-align:center;" width="130">Address Confiremed</td>
-<% if @customer.servey.present? && @customer.servey.address_confirmed? %>
+<% if @customer&.servey&.present? && @customer&.servey.address_confirmed? %>
         <td width="80" style="background:silver;border-right:1px #000 solid">YES</td>
 <% end %>
         <td width="80" style="border-right:1px #000 solid">NO</td>
         <td width="150" style="border-right:1px #000 solid; text-align:center;"><strong>Name & Stay Confirmed</strong></td>
-<% if @customer.servey.present? && @customer.servey.name_and_stay_confirm? %>
+<% if @customer&.servey.present? && @customer&.servey.name_and_stay_confirm? %>
         <td width="80" style="background:silver;border-right:1px #000 solid;">YES</td>
 <% end %>
         <td>&nbsp;</td>
@@ -77,9 +77,9 @@ border-collapse:collapse;
         <tr>
         <td width="130" style="border-right:1px #000 solid; font-weight:bold">Date of Visit</td>
         <td width="144" style="padding-left:20px; border-right:1px #000 solid; font-weight:bold">
-        <%#= @customer.servey.date_of_visit.strftime("%m/%d/%Y") if @customer.servey.present? && @cusotmer.servey.date_of_visit.present? %></td>
+        <%#= @customer&.servey.date_of_visit.strftime("%m/%d/%Y") if @customer&.servey.present? && @cusotmer.servey.date_of_visit.present? %></td>
         <td width="233" style="border-right:1px #000 solid; font-weight:bold">TIME OF VISIT</td>
-        <td style="padding-left:20px; font-weight:bold;"><%= @customer.servey.time_of_visit.strftime("%H:%M %p") if @customer.servey.present? && @customer.servey.time_of_visit %></td>
+        <td style="padding-left:20px; font-weight:bold;"><%= @customer&.servey.time_of_visit.strftime("%H:%M %p") if @customer&.servey.present? && @customer&.servey.time_of_visit %></td>
 
         </tr>
         </table>
@@ -94,9 +94,9 @@ border-collapse:collapse;
         <tr>
 
         <td width="100" style="border-right:1px #000 solid; font-weight:bold">Person Contacted</td>
-        <td width="148" style="border-right:1px #000 solid; font-weight:bold;"><%= @customer.servey.person_contacted if @customer.servey.present? %></td>
+        <td width="148" style="border-right:1px #000 solid; font-weight:bold;"><%= @customer&.servey.person_contacted if @customer&.servey.present? %></td>
         <td width="250" style="border-right:1px #000 solid; font-weight:bold;">Relation with Applicant</td>
-        <td width="100"><%= @customer.servey.relation_with_applicant if @customer.servey.present? %></td>
+        <td width="100"><%= @customer&.servey.relation_with_applicant if @customer&.servey.present? %></td>
         <td>&nbsp;</td>
        </tr>
         </table>
@@ -108,9 +108,9 @@ border-collapse:collapse;
         <table>
         <tr>
         <td width="150" style="border-right:1px #000 solid; font-weight:bold">Date of birth / Age of Applicant </td>
-        <td width="266" style="padding-left:10; border-right:1px #000 solid;"><%= @customer.servey.date_of_birth.strftime("%m/%d/%Y") if @customer.servey.present? && @customer.servey.date_of_birth %></td>
+        <td width="266" style="padding-left:10; border-right:1px #000 solid;"><%= @customer&.servey.date_of_birth.strftime("%m/%d/%Y") if @customer&.servey.present? && @customer&.servey.date_of_birth %></td>
         <td width="150" style="padding-left:10; border-right:1px #000 solid; font-weight:bold">Years lived at current address</td>
-        <td><%= @customer.servey.years_lived_at_current_address if @customer.servey.present? %> Years</td>
+        <td><%= @customer&.servey.years_lived_at_current_address if @customer&.servey.present? %> Years</td>
         </tr>
         </table>
         </td>
@@ -131,22 +131,22 @@ border-collapse:collapse;
 <td><table width="700"  cellpadding="0" cellspacing="0">
 <tr><td><table width="20"  cellpadding="0" cellspacing="0" style="margin-left:2px;">
 <!-- residence status first block -->
-<% if @customer.servey.present? && @customer.servey.residence_status=='Self Owned'%>
+<% if @customer&.servey.present? && @customer&.servey.residence_status=='Self Owned'%>
 <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
-<% elsif @customer.servey.present? && @customer.servey.residence_status=='Owned By Parents'%>
+<% elsif @customer&.servey.present? && @customer&.servey.residence_status=='Owned By Parents'%>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
-<% elsif @customer.servey.present? && @customer.servey.residence_status=='Rented'%>
+<% elsif @customer&.servey.present? && @customer&.servey.residence_status=='Rented'%>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
-<% elsif @customer.servey.present? && @customer.servey.residence_status=='Company Accomodation'%>
+<% elsif @customer&.servey.present? && @customer&.servey.residence_status=='Company Accomodation'%>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
@@ -170,22 +170,22 @@ border-collapse:collapse;
 
 <td><table width="20"  cellpadding="0" cellspacing="0" style="margin-top:-4">
 <!-- residence status second block -->
-<% if @customer.servey.present? && @customer.servey.residence_status == 'paying guest'%>
+<% if @customer&.servey.present? && @customer&.servey.residence_status == 'paying guest'%>
 <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
-<% elsif @customer.servey.present? && @customer.servey.residence_status == 'owned by friend'%>
+<% elsif @customer&.servey.present? && @customer&.servey.residence_status == 'owned by friend'%>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
-<% elsif @customer.servey.present? && @customer.servey.residence_status == 'Owned by Relative'%>
+<% elsif @customer&.servey.present? && @customer&.servey.residence_status == 'Owned by Relative'%>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
-<% elsif @customer.servey.present? && @customer.servey.residence_status == 'Lodging'%>
+<% elsif @customer&.servey.present? && @customer&.servey.residence_status == 'Lodging'%>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
@@ -210,15 +210,15 @@ border-collapse:collapse;
 
 <td>
 <table width="20"  cellpadding="0" cellspacing="0">
-<% if @customer.servey.present? &&  @customer.servey.educational_qualification == 'proffessional' %>
+<% if @customer&.servey.present? &&  @customer&.servey.educational_qualification == 'proffessional' %>
 <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
-<% elsif @customer.servey.present? && @customer.servey.educational_qualification == 'Post Graduate' %>
+<% elsif @customer&.servey.present? && @customer&.servey.educational_qualification == 'Post Graduate' %>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
-<% elsif @customer.servey.present? && @customer.servey.educational_qualification == 'Under Graduate' %>
+<% elsif @customer&.servey.present? && @customer&.servey.educational_qualification == 'Under Graduate' %>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
 <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td></tr>
@@ -241,7 +241,7 @@ border-collapse:collapse;
     <tr style="border-left:1px #000 solid;">
     <td><table><tr><td>
     <table width="20"  cellpadding="0" cellspacing="0"><tr>
-<% if @customer.servey.present? && @customer.servey.marital_status == 'Single' %>
+<% if @customer&.servey.present? && @customer&.servey.marital_status == 'Single' %>
     <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td></tr>
     <tr><td style="border:1px #000 solid">&nbsp;</td></tr>
  <% else %>
@@ -263,9 +263,9 @@ border-collapse:collapse;
    <tr>
    <td style="border:1px #000 solid">
    <table>
-    <tr><td width="150">No of Family Members </td><td style="width:20px;font-size:10px;border:1px #000 solid"><%= @customer.servey.no_of_family_members if @customer.servey.present? %></td></tr>
-    <tr><td>Working </td><td style="width:20px;font-size:10px;border:1px #000 solid"><%= @customer.servey.working_member if @customer.servey.present? %></td></tr>
-    <tr><td>Children</td><td style="width:20px;font-size:10px;border:1px #000 solid"><%= @customer.servey.children if @customer.servey.present? %></td></tr>
+    <tr><td width="150">No of Family Members </td><td style="width:20px;font-size:10px;border:1px #000 solid"><%= @customer&.servey.no_of_family_members if @customer&.servey.present? %></td></tr>
+    <tr><td>Working </td><td style="width:20px;font-size:10px;border:1px #000 solid"><%= @customer&.servey.working_member if @customer&.servey.present? %></td></tr>
+    <tr><td>Children</td><td style="width:20px;font-size:10px;border:1px #000 solid"><%= @customer&.servey.children if @customer&.servey.present? %></td></tr>
     </table>
     </td>
    </tr>
@@ -281,7 +281,7 @@ border-collapse:collapse;
         <table>
         <tr>
         <td width="156" style="border-right:1px #000 solid">Any Credit Card</td>
-        <% if @customer.servey.present? && @customer.servey.credit_card? %>
+        <% if @customer&.servey.present? && @customer&.servey.credit_card? %>
         <td width="80" style="background:silver;border-right:1px #000 solid; text-align:center;">YES</td>
         <td width="80" style="border-right:1px #000 solid; text-align:center;">NO</td>
         <% else %>
@@ -289,7 +289,7 @@ border-collapse:collapse;
         <td width="80" style="background:silver;border-right:1px #000 solid; text-align:center;">NO</td>
         <% end %>
         <td width="228" style="border-right:1px #000 solid; font-weight:bold">Card No.</td>
-        <td><%= @customer.servey.card_no if @customer.servey.present? %></td>
+        <td><%= @customer&.servey.card_no if @customer&.servey.present? %></td>
         </tr>
         </table>
 		</td>
@@ -342,22 +342,22 @@ border-collapse:collapse;
         <tr><td>
 
         <table width="150">
-        <% if @customer.servey.present? && @customer.servey.type_of_residence == 'Flat'%>
+        <% if @customer&.servey.present? && @customer&.servey.type_of_residence == 'Flat'%>
         <tr><td style="background:silver;border:1px #000 solid" width="20">&nbsp;</td><td>Flat</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Independent House</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Part of Independent House</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Multi tenant House</td></tr>
-        <% elsif @customer.servey.present? && @customer.servey.type_of_residence == 'Independent House'%>
+        <% elsif @customer&.servey.present? && @customer&.servey.type_of_residence == 'Independent House'%>
         <tr><td style="border:1px #000 solid" width="20">&nbsp;</td><td>Flat</td></tr>
         <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td><td>Independent House</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Part of Independent House</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Multi tenant House</td></tr>
-        <% elsif @customer.servey.present? && @customer.servey.type_of_residence == 'Multitanent House'%>
+        <% elsif @customer&.servey.present? && @customer&.servey.type_of_residence == 'Multitanent House'%>
         <tr><td style="border:1px #000 solid" width="20">&nbsp;</td><td>Flat</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Independent House</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Part of Independent House</td></tr>
         <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td><td>Multi tenant House</td></tr>
-        <% elsif @customer.servey.present? && @customer.servey.type_of_residence == 'Flat'%>
+        <% elsif @customer&.servey.present? && @customer&.servey.type_of_residence == 'Flat'%>
         <tr><td style="background:silver;border:1px #000 solid" width="20">&nbsp;</td><td>Flat</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Independent House</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Part of Independent House</td></tr>
@@ -384,7 +384,7 @@ border-collapse:collapse;
       	<tr>
       	<td>
         <table>
-        <% if @customer.servey.present? && @customer.servey.locality_of_residence == 'Posh locality'%>
+        <% if @customer&.servey.present? && @customer&.servey.locality_of_residence == 'Posh locality'%>
         <tr><td style="background:silver;border:1px #000 solid" width="20">&nbsp;</td><td>Posh Locality</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Upper Middle Class</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Middle Class</td></tr>
@@ -396,7 +396,7 @@ border-collapse:collapse;
         <table>  <tr><td style="border:1px #000 solid" width="20">&nbsp;</td><td>Village Area</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Slums</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Other</td></tr>
-        <% elsif @customer.servey.present? && @customer.servey.locality_of_residence == 'village area'%>
+        <% elsif @customer&.servey.present? && @customer&.servey.locality_of_residence == 'village area'%>
         <tr><td style="border:1px #000 solid" width="20">&nbsp;</td><td>Posh Locality</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Upper Middle Class</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Middle Class</td></tr>
@@ -409,7 +409,7 @@ border-collapse:collapse;
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Slums</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Other</td></tr>
 
-        <% elsif @customer.servey.present? && @customer.servey.locality_of_residence == 'upper middle class'%>
+        <% elsif @customer&.servey.present? && @customer&.servey.locality_of_residence == 'upper middle class'%>
         <tr><td style="border:1px #000 solid" width="20">&nbsp;</td><td>Posh Locality</td></tr>
         <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td><td>Upper Middle Class</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Middle Class</td></tr>
@@ -421,7 +421,7 @@ border-collapse:collapse;
         <table>  <tr><td style="border:1px #000 solid" width="20">&nbsp;</td><td>Village Area</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Slums</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Other</td></tr>
-        <% elsif @customer.servey.present? && @customer.servey.locality_of_residence == 'lower middle class'%>
+        <% elsif @customer&.servey.present? && @customer&.servey.locality_of_residence == 'lower middle class'%>
         <tr><td style="border:1px #000 solid" width="20">&nbsp;</td><td>Posh Locality</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Upper Middle Class</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Middle Class</td></tr>
@@ -455,15 +455,15 @@ border-collapse:collapse;
         </table></td>
         <td>
         <table width="150">
-        <% if @customer.servey.present? && @customer.servey.ease_of_location=='easy' %>
+        <% if @customer&.servey.present? && @customer&.servey.ease_of_location=='easy' %>
         <tr><td style="background:silver;border:1px #000 solid;" width="20">&nbsp;</td><td>Easy</td></tr>
         <tr><td style="border:1px #000 solid;">&nbsp;</td><td>Diffcult</td>
         <tr><td style="border:1px #000 solid;">&nbsp;</td><td>Untraceable</td>
-        <% elsif @customer.servey.present? && @customer.servey.ease_of_location=='difficult' %>
+        <% elsif @customer&.servey.present? && @customer&.servey.ease_of_location=='difficult' %>
         <tr><td style="border:1px #000 solid;" width="20">&nbsp;</td><td>Easy</td></tr>
         <tr><td style="background:silver;border:1px #000 solid;">&nbsp;</td><td>Diffcult</td>
         <tr><td style="border:1px #000 solid;">&nbsp;</td><td>Untraceable</td>
-        <% elsif @customer.servey.present? && @customer.servey.ease_of_location=='untraceable' %>
+        <% elsif @customer&.servey.present? && @customer&.servey.ease_of_location=='untraceable' %>
         <tr><td style="border:1px #000 solid;" width="20">&nbsp;</td><td>Easy</td></tr>
         <tr><td style="border:1px #000 solid;">&nbsp;</td><td>Diffcult</td>
         <tr><td style="background:silver;border:1px #000 solid;">&nbsp;</td><td>Untraceable</td>
@@ -483,15 +483,15 @@ border-collapse:collapse;
         <td style="border-right:1px #000 solid"></td>
         </tr>
         <tr><td width="150"style="border:1px #000 solid"><table>
-        <% if @customer.servey.present? && @customer.servey.construction_of_residence=='pakka' %>
+        <% if @customer&.servey.present? && @customer&.servey.construction_of_residence=='pakka' %>
         <tr><td style="background:silver;border:1px #000 solid" width="20">&nbsp;</td><td>Pakka</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Semi-Pakka</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Temporary</td></tr>
-        <% elsif @customer.servey.present? && @customer.servey.construction_of_residence=='semi pakka' %>
+        <% elsif @customer&.servey.present? && @customer&.servey.construction_of_residence=='semi pakka' %>
         <tr><td style="border:1px #000 solid" width="20">&nbsp;</td><td>Pakka</td></tr>
         <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td><td>Semi-Pakka</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Temporary</td></tr>
-        <% elsif @customer.servey.present? && @customer.servey.construction_of_residence=='temperory' %>
+        <% elsif @customer&.servey.present? && @customer&.servey.construction_of_residence=='temperory' %>
         <tr><td style="border:1px #000 solid" width="20">&nbsp;</td><td>Pakka</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Semi-Pakka</td></tr>
         <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td><td>Temporary</td></tr>
@@ -502,7 +502,7 @@ border-collapse:collapse;
         <% end %>
 
         </table></td>
-        <% if @customer.servey.present? && @customer.servey.comments_of_exteriors=='fenced' %>
+        <% if @customer&.servey.present? && @customer&.servey.comments_of_exteriors=='fenced' %>
         <td style="border:1px #000 solid; border-right:none"><table>
         <tr><td width="20" style="border:1px #000 solid">&nbsp;</td><td>Car Park</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Garden</td></tr>
@@ -516,7 +516,7 @@ border-collapse:collapse;
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Elevator</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Others (PLs. Specify)</td></tr>
 
-        <% elsif @customer.servey.present? && @customer.servey.comments_of_exteriors=='elevator' %>
+        <% elsif @customer&.servey.present? && @customer&.servey.comments_of_exteriors=='elevator' %>
         <td style="border:1px #000 solid; border-right:none"><table>
         <tr><td width="20" style="border:1px #000 solid">&nbsp;</td><td>Car Park</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Garden</td></tr>
@@ -530,7 +530,7 @@ border-collapse:collapse;
         <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td><td>Elevator</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Others (PLs. Specify)</td></tr>
 
-        <% elsif @customer.servey.present? && @customer.servey.comments_of_exteriors=='Building wall' %>
+        <% elsif @customer&.servey.present? && @customer&.servey.comments_of_exteriors=='Building wall' %>
         <td style="border:1px #000 solid; border-right:none"><table>
         <tr><td width="20" style="border:1px #000 solid">&nbsp;</td><td>Car Park</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Garden</td></tr>
@@ -571,15 +571,15 @@ border-collapse:collapse;
 </tr>
 
         <tr><td width="150" style="border:1px #000 solid; border-right:1px #fff solid;"><table>
-        <% if @customer.servey.present? && @customer.servey.interior_condition == 'sofa'%>
+        <% if @customer&.servey.present? && @customer&.servey.interior_condition == 'sofa'%>
         <tr><td style="background:silver;border:1px #000 solid" width="20">&nbsp;</td><td>Sofa</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Clean</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Painted</td></tr>
-        <% elsif @customer.servey.present? && @customer.servey.interior_condition == 'clean'%>
+        <% elsif @customer&.servey.present? && @customer&.servey.interior_condition == 'clean'%>
         <tr><td style="border:1px #000 solid" width="20">&nbsp;</td><td>Sofa</td></tr>
         <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td><td>Clean</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Painted</td></tr>
-        <% elsif @customer.servey.present? && @customer.servey.interior_condition == 'painted'%>
+        <% elsif @customer&.servey.present? && @customer&.servey.interior_condition == 'painted'%>
         <tr><td style="border:1px #000 solid" width="20">&nbsp;</td><td>Sofa</td></tr>
         <tr><td style="border:1px #000 solid">&nbsp;</td><td>Clean</td></tr>
         <tr><td style="background:silver;border:1px #000 solid">&nbsp;</td><td>Painted</td></tr>
@@ -608,7 +608,7 @@ border-collapse:collapse;
         <tbody>
         <tr>
         </tr>
-         <td style="font-size:10px;"><%= @customer.servey.carpet_area_in_sq_feet if @customer.servey.present? %> Square Feet.</td>
+         <td style="font-size:10px;"><%= @customer&.servey.carpet_area_in_sq_feet if @customer&.servey.present? %> Square Feet.</td>
          </tbody></table>
         </td>
         </tr>
@@ -656,21 +656,21 @@ border-collapse:collapse;
         <tr><td style="border-bottom:1px #000 solid">Third Party Confirmation</td></tr>
         <tr><td style="border-bottom:1px #000 solid">Viewer Remarks</td></tr>
         <tr><td height="40" style="border-bottom:1px #000 solid;">
-        <%= @customer.servey.time_of_visit.strftime("%H:%M %p") if @customer.servey.present? && @customer.servey.time_of_visit %>,
-        <%= @customer.servey.date_of_visit.strftime("%m/%d/%Y") if @customer.servey.present? && @customer.servey.time_of_visit %>,
-        <%= @customer.servey.person_contacted if @customer.servey.present? %>,
-        <%= @customer.servey.relation_with_applicant if @customer.servey.present? %>,
-        <%= @customer.servey.date_of_birth.strftime("%m/%d/%Y") if @customer.servey.present? && @customer.servey.date_of_birth %>,
-        <%= @customer.servey.years_lived_at_current_address if @customer.servey.present? %> years,
-        <%= @customer.servey.residence_status if @customer.servey.present? %>,
-        <%= @customer.servey.educational_qualification if @customer.servey.present? %>,
-        <%= @customer.servey.verifiers_remark if @customer.servey.present? %></td></tr>
+        <%= @customer&.servey.time_of_visit.strftime("%H:%M %p") if @customer&.servey.present? && @customer&.servey.time_of_visit %>,
+        <%= @customer&.servey.date_of_visit.strftime("%m/%d/%Y") if @customer&.servey.present? && @customer&.servey.time_of_visit %>,
+        <%= @customer&.servey.person_contacted if @customer&.servey.present? %>,
+        <%= @customer&.servey.relation_with_applicant if @customer&.servey.present? %>,
+        <%= @customer&.servey.date_of_birth.strftime("%m/%d/%Y") if @customer&.servey.present? && @customer&.servey.date_of_birth %>,
+        <%= @customer&.servey.years_lived_at_current_address if @customer&.servey.present? %> years,
+        <%= @customer&.servey.residence_status if @customer&.servey.present? %>,
+        <%= @customer&.servey.educational_qualification if @customer&.servey.present? %>,
+        <%= @customer&.servey.verifiers_remark if @customer&.servey.present? %></td></tr>
         </table></td>
 	</tr>
 	<tr>
   <td>
    <table width="700" cellpadding="0" cellspacing="0">
-<% if @customer.servey.present? && @customer.servey.refer_to_bank=='Accept' %>
+<% if @customer&.servey.present? && @customer&.servey.refer_to_bank=='Accept' %>
      <tr><td  width="50" cellpadding="0" cellspacing="0" style="background:silver;border:1px #000 solid">&nbsp;</td>
      <td width="95">POSITIVE</td>
      <td  width="50"  cellpadding="0" cellspacing="0" style="border:1px #000 solid">&nbsp;</td>

@@ -1,5 +1,5 @@
 class BusinessesController < InheritedResources::Base
-   before_filter :authenticate_user!
+   before_action :authenticate_user!
    layout 'print_layout', :only => :print_business_form
    load_and_authorize_resource
 

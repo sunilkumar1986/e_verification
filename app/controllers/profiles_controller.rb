@@ -1,11 +1,11 @@
 class ProfilesController < ApplicationController
-  before_filter :authenticate_user!
-  load_and_authorize_resource
+  before_action :authenticate_user!
+  # load_and_authorize_resource
   # GET /profiles
   # GET /profiles.json
   def index
-    @user = User.find_all_by_role("tab_user")
-    @profiles = Profile.find_all_by_user_id(@user)
+    @user = User.where(role: "tab_user")
+    @profiles = Profile.where(user_id: @user)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @profile = Profile.find(params[:id])
-    @task = CustomerVerification.find_all_by_tab_id(current_user.tab)
+    @task = CustomerVerification.where(tab_id: current_user.tab)
 
     respond_to do |format|
       format.html # show.html.erb

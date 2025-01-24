@@ -1,5 +1,5 @@
 class CoApplicantWorkDetail < ActiveRecord::Base
-  attr_accessible :co_applicant_id,:customer_id, :pincode_id, :servey_id, :office_address, :name_and_employee_confirm,
+  attr_accessor :co_applicant_id,:customer_id, :pincode_id, :servey_id, :office_address, :name_and_employee_confirm,
                   :application_designation,:date_of_visit, :time_of_visit, :person_met,:applicant_designation,
                   :designation_of_person_met, :telephone_number, :ext_number, :mobile_number, :number_of_years_in_present_employment,
                   :visiting_card_obtained, :name_of_the_company, :type_of_business, :nature_of_business, :nob_in_detail,

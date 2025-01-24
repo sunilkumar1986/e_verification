@@ -1,5 +1,5 @@
 class Profile < ActiveRecord::Base
-  attr_accessible :user_id, :photo, :contact_no_1, :contact_no_2, :blood_group, :address, :date_of_birth, :verification_area, :hobbies
+  attr_accessor :user_id, :photo, :contact_no_1, :contact_no_2, :blood_group, :address, :date_of_birth, :verification_area, :hobbies
   #validates_uniqueness_of :contact_no_1, :contact_no_2, :message=>"is already assigned !"
   #validates_presence_of :address, :contact_no_1, :contact_no_2
   #validates :contact_no_1, :contact_no_2, :length => {

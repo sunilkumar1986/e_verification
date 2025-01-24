@@ -34,7 +34,7 @@
      <td><span class="label label-success"> verified </span></td>
      <% end %>
 
-     <% @verifier  = CustomerVerification.find_all_by_customer_id(customer) %>
+     <% @verifier  = CustomerVerification.where(customer_id: customer) %>
       <% @verifier.each do |v| %>
        <% if v.tab.name %>
         <td width="150px"><%= v.tab.name %></td>

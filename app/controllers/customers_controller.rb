@@ -1,8 +1,8 @@
 class CustomersController < ApplicationController
    include ApplicationHelper
-   before_filter :authenticate_user!
+   before_action :authenticate_user!
    layout 'print_layout', :only => :print_customer
-   load_and_authorize_resource
+   # load_and_authorize_resource
 
   def index
     @business = Business.without_status('ready_for_verification')
@@ -10,7 +10,7 @@ class CustomersController < ApplicationController
     @co_app_business = CoApplicantBusiness.without_status('ready_for_verification')
     @customers = Customer.without_status('ready_for_verification')
     filename = "customers.xls"
-    @all_custome = (@business + @co_applicants + @co_app_business + @customers).sort_by {|a| a.created_at}.reverse
+    @all_custome = (@business + @co_applicants + @co_app_business + @customers).reverse
     #@all_customer = @all_customer.page(params[:page]).per(5)
     respond_to do |format|
       format.html do # index.html.erb
